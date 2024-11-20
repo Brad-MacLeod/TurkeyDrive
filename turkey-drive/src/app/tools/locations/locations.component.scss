@@ -1,30 +1,26 @@
-table {
-    
+.card {
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 8px;
 }
 
-tr.example-detail-row {
-  height: 0;
-  background-color:#B2B3B7 ;
+.door{
+  //font-size: .9rem;
+  color:#454545
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
-  background: #B2B3B7;
+.address{
+  font-size: .8rem;
+  color:#454545
 }
 
-tr.example-element-row:not(.example-expanded-row):active {
-  background: #B2B3B7;
+.content{
+  font-weight: 200;
+  padding-top: 1vh;
 }
 
-.example-element-row td {
-  border-bottom-width: 0;
-}
-
-.example-element-detail {
-  overflow: hidden;
-  display: flex;
-}
-
-
-.example-element-description {
-  padding: 16px;
+.font-rubik {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }

@@ -1,42 +1,30 @@
-import { Component } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import {Component, Input } from '@angular/core';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-locations',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatIconModule],
+  imports: [MatCardModule],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.scss',
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed,void', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  
 })
 export class LocationsComponent {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['location'];
-  columnsToDisplayWithExpand = ['expand',...this.columnsToDisplay];
-  expandedElement: Location | null | undefined;
-}
+  @Input() name: string = "";
+  @Input() address: string = "";
+  @Input() hours: string[] = [];
+  @Input() image: string = "";
+  @Input() door: string = "";
 
-export interface Location {
-  site: string;
-  address: string;
-}
+  public index:number = 0;
 
-const ELEMENT_DATA: Location[] = [
-  {
-    site: 'Salisbury Fire Rescue',
-    address: '56 Douglas St, Salisbury, NB E4J 3E3',
-  },
-  {
-    site: 'Salisbury Helping Hands',
-    address: '64 Douglas St, Salisbury, NB E4J 3E3',
+
+  getImage(){
+    return "/images/" + this.image;
   }
-];
+
+  hasHours(){
+    return this.hours.length > 0;
+  }
+}
+
