@@ -1,7 +1,15 @@
+@use '@angular/material' as mat;
+
 /* You can add global styles to this file, and also import other style files */
 // @media (max-width: 1400px) {
     
 //   }
+
+:root {
+  /* the only thing needed is a grainy/noisy background image */
+  //--glitter: url("https://assets.codepen.io/13471/silver-glitter-background.png");
+  //--glitter: url("/images/Salisbury-Fire-Logo.png");
+}
 
   html {
     font-size: 20px;
@@ -27,6 +35,15 @@
       //background-color: rgb(97, 97, 201);
       height: 100%;
     }
+  }
+
+  :root {
+    @include mat.progress-bar-overrides((
+      active-indicator-color: #b51515,
+      track-color: #B2B3B7,
+      track-height: 2.5rem,
+      active-indicator-height:2.5rem,
+    ));
   }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; }

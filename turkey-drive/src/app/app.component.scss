@@ -69,14 +69,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         //background-color: black;
     }
     &-txt{
         //background-color: gray;
         text-align: right;
         //padding-right: 1vw;
-        //padding-top: 12vh;
+        padding-bottom: 2rem;
         font-size:2.5rem ;
     }
     &-amt{
@@ -91,6 +91,24 @@
         //max-height: 90%;
         float: center;
         max-height: 19vh;
+    }
+}
+
+.page-progress{
+    display: flex;
+    justify-content: center;  
+    padding-bottom: 2vh;
+    background-color: #212061;
+    &-container{
+        
+    }
+    &-txt{
+        text-align: center;
+        color: white;
+        font-size: 4rem;
+    }
+    &-subtxt{
+        font-size: 2rem;
     }
 }
 
