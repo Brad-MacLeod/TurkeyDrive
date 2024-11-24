@@ -12,7 +12,7 @@
   <div Class="page-goal font-rubik">
     <div class="page-goal-container">
       <div class="page-goal-txt">Donated</div>    
-      <div class="page-goal-amt">{{progress}}</div>
+      <div class="page-goal-amt"><app-number-counter [number]="getProgress()" [duration]="duration"></app-number-counter></div>
     </div>
     <div class="page-goal-char"><img src="/images/Turkey-PigV2.png"/></div>       
   </div>
@@ -20,11 +20,25 @@
   <div Class="page-progress">
     <div class="page-space"></div>
     <div class="page-progress-container">    
-      <div><app-progress [turkeys]="progress" [goal]="goal"></app-progress></div>
-      <div class="page-progress-txt font-rubik"><span class="page-progress-subtxt">Goal</span>{{goal}}</div>
+      <div><app-progress [goal]="siteConfig.main_goal" [duration]="duration" [progress]="getProgress()"></app-progress></div>
+      <div class="page-progress-txt font-rubik"><span class="page-progress-subtxt">Goal</span>{{siteConfig.main_goal}}</div>
     </div>
     <div class="page-space"></div>
   </div>
+
+  <!-- <div Class="page-progress-sub">
+    <div class="page-space"></div>
+    @for (item of siteConfig.donated; track $index) {
+      @if (item.show) {
+        <div class="page-progress-container">    
+          <div class="page-progress-sub-txt font-rubik">{{item.name}}</div>
+          <div><app-progress [goal]="item.goals[0]" [duration]="duration" [progress]="item.progress" type="spinner"></app-progress></div>
+          <div class="page-progress-sub-txt font-rubik">{{item.progress}}</div>
+        </div>
+      }
+    }
+    <div class="page-space"></div>
+  </div> -->
 
   <div class="page-how-to">
     <div class="page-how-to-left-space"></div>

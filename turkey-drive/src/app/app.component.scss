@@ -99,17 +99,34 @@
     justify-content: center;  
     padding-bottom: 2vh;
     background-color: #212061;
+
     &-container{
-        
+        padding-left: 5vh;
+        padding-right: 5vh;
     }
     &-txt{
         text-align: center;
         color: white;
         font-size: 4rem;
     }
-    &-subtxt{
-        font-size: 2rem;
+    &-sub-txt{
+        font-size: 1rem;
+        color: white;
+        text-align: center;
     }
+}
+
+.page-progress-sub{
+    display: flex;
+    justify-content: center;  
+    padding-bottom: 2vh;
+    background-color: #B2B3B7;
+    &-txt{
+        font-size: 1rem;
+        color: black;
+        text-align: center;
+    }
+    
 }
 
 .page-how-to{
