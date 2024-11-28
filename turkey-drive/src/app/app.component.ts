@@ -17,7 +17,7 @@ import { NumberCounterComponent } from "./tools/number-counter/number-counter.co
 export class AppComponent {
   title = 'turkey-drive';
   goal:number = 150;
-  progress:number = 11;
+  progress:number = 28;
   duration:number = 2;
   
   siteConfig: SiteConfig = new SiteConfig;
@@ -36,11 +36,15 @@ export class AppComponent {
   getProgress():number{
     var progress = 0;
 
-    this.siteConfig.donated
-      .filter(d=> d.combine)
-      .map(d => {
-        progress += d.progress
-    });
-    return progress;
+    if(this.siteConfig.donated.length>0){
+      this.siteConfig.donated
+        .filter(d=> d.combine)
+        .map(d => {
+          progress += d.progress
+      });
+      return progress;
+    }else{
+      return this.progress;
+    }
   }
 }
