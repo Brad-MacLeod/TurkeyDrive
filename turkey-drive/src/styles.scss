@@ -43,14 +43,8 @@
       track-color: #B2B3B7,
       track-height: 2.5rem,
       active-indicator-height:2.5rem,
-    ));
-
-    // @include mat.progress-spinner-overrides((
-    //   active-indicator-color: #b51515,
-    //   //track-color: #B2B3B7,
-    //   //track-height: 2.5rem,
-    //   size:10.5rem,
-    // ));
+    ));  
+      
   }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; }

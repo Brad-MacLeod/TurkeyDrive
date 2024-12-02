@@ -1,5 +1,5 @@
 @if (type == "bar") {
     <mat-progress-bar mode="determinate" value="{{counter | async}}" class="progressbar"></mat-progress-bar>
 }@else{
-    <mat-progress-spinner mode="determinate" value="{{counter | async}}" class="progressspinner" diameter="100" [color]="progressColor"></mat-progress-spinner>
+    <mat-progress-spinner mode="determinate" value="{{counter | async}}" class="progressspinner" [diameter]="diameter" [strokeWidth]="stroke" color="warn"></mat-progress-spinner>
 }

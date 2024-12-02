@@ -12,6 +12,7 @@
     font-weight: 900;
     font-style: normal;
     line-height: normal;
+    min-width: 367px;
 }
 
 .font-rubik {
@@ -103,31 +104,49 @@
     &-container{
         padding-left: 5vh;
         padding-right: 5vh;
+        // display: flex;
+        // justify-content: center;  
+    }
+    &-sub{
+        padding-left: 5vh;
+        padding-right: 5vh;
+        display: flex;
+        justify-content: center;  
+        background-color: #212061;
+        
+        &-txt{
+            font-size: 1rem;
+            color: white;
+            text-align: center;
+        }
+        &-value{
+            font-size: 2rem;
+            text-align: center;
+        }
     }
     &-txt{
         text-align: center;
         color: white;
         font-size: 4rem;
     }
-    &-sub-txt{
-        font-size: 1rem;
-        color: white;
-        text-align: center;
-    }
-}
-
-.page-progress-sub{
-    display: flex;
-    justify-content: center;  
-    padding-bottom: 2vh;
-    background-color: #B2B3B7;
-    &-txt{
-        font-size: 1rem;
-        color: black;
-        text-align: center;
-    }
+    
     
 }
+
+// .page-progress-sub{
+//     display: flex;
+//     justify-content: center;  
+//     padding-bottom: 2vh;
+//     //background-color: #B2B3B7;
+    
+//     &-txt{
+//         font-size: 1rem;
+//         //color: black;
+//         color:white;
+//         text-align: center;
+//     }
+    
+// }
 
 .page-how-to{
     display: flex;

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, formatCurrency } from '@angular/common';
 import { 
   AfterViewInit,
   Component,
@@ -19,6 +19,7 @@ import { BehaviorSubject } from "rxjs";
 export class NumberCounterComponent implements OnChanges, AfterViewInit {
   @Input("number") number!: number;
   @Input("duration") duration!: number;
+  @Input("money") money:boolean = false;
 
   //counter: string = "0";
   counter = new BehaviorSubject<string>("0");
@@ -54,4 +55,5 @@ export class NumberCounterComponent implements OnChanges, AfterViewInit {
       }
     }, incrementTime);
   }
+
 }
