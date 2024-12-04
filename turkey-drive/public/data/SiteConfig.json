@@ -1,10 +1,9 @@
 {
-    "last_updated":"2024-12-01 15:00:00:0000",
-    "main_goal":150,
+    "last_updated":"2024-12-03 21:00:00:0000",
     "donated":[
         {
             "name":"Turkey",
-            "progress":90,            
+            "progress":130,            
             "goal":100,            
             "combine":true,
             "show":true,
@@ -12,7 +11,7 @@
         },
         {
             "name":"Ham",
-            "progress":14,            
+            "progress":17,            
             "goal":50,                
             "combine":true,
             "show":true,

@@ -5,11 +5,11 @@
     
 //   }
 
-:root {
-  /* the only thing needed is a grainy/noisy background image */
-  //--glitter: url("https://assets.codepen.io/13471/silver-glitter-background.png");
-  //--glitter: url("/images/Salisbury-Fire-Logo.png");
-}
+// :root {
+//   /* the only thing needed is a grainy/noisy background image */
+//   //--glitter: url("https://assets.codepen.io/13471/silver-glitter-background.png");
+//   //--glitter: url("/images/Salisbury-Fire-Logo.png");
+// }
 
   html {
     font-size: 20px;
@@ -48,3 +48,8 @@
   }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; }
+
+.check-mark{
+  color: #4ace01;
+  font-size: 1.5rem;
+}

@@ -12,7 +12,7 @@
   <div Class="page-goal font-rubik">
     <div class="page-goal-container">
       <div class="page-goal-txt">Donated</div>    
-      <div class="page-goal-amt"><app-number-counter [number]="getDonated()" [duration]="duration"></app-number-counter></div>
+      <div class="page-goal-amt"><app-number-counter [number]="donated" [duration]="duration"></app-number-counter></div>
     </div>
     <div class="page-goal-char"><img src="/images/Turkey-PigV2.png"/></div>       
   </div>
@@ -20,8 +20,14 @@
   <div Class="page-progress">
     <div class="page-space"></div>
     <div class="page-progress-container">    
-      <div><app-progress [goal]="siteConfig.main_goal" [duration]="duration" [progress]="getProgress()"></app-progress></div>
-      <div class="page-progress-txt font-rubik"><span class="page-progress-subtxt">Goal</span>{{siteConfig.main_goal}}</div>
+      <div><app-progress [goal]="goal" [duration]="duration" [progress]="progress"></app-progress></div>
+      <div class="page-progress-txt font-rubik"><span class="page-progress-subtxt">Goal</span>{{goal}}</div>
+      @if (prev_goal > 0) {
+      <div class="page-progress-txt-prev font-rubik">
+        <!-- <mat-icon aria-hidden="false" aria-label="Complete" fontIcon="check_circle" class="check-mark"></mat-icon> -->
+        {{prev_goal}}
+      </div>
+    }
     </div>
     <div class="page-space"></div>
   </div>
@@ -90,6 +96,29 @@
 
   <div class="page-loc">
     <div class="page-loc-txt font-rubik">Drop Off Locations</div>
+    <div class="page-loc-line">
+      <div class="page-space"></div>
+      <div class="page-loc-container">
+        <div class="page-loc-site">
+          <app-locations 
+            image="sal-250.jpg" 
+            name="Tree Lighting"
+            door="Highland Park"
+            address="29 Highland Dr, Salisbury, NB E4J 2G7"
+            [hours]="['Thursday Dec 5th','5:30PM - 8:00PM']"></app-locations>
+        </div>
+        <div class="page-loc-site">
+          <app-locations 
+            image="rcmp.jpg" 
+            name="RCMP Fill the Cruiser"
+            door="Sandy's Independent"
+            address="3070 Main St, Salisbury, NB E4J 2L6"
+            [hours]="['Monday Dec 9th', '3PM - 7PM']"></app-locations>
+        </div>
+                
+      </div>
+      <div class="page-space"></div>
+    </div>
     <div class="page-loc-line">
       <div class="page-space"></div>
       <div class="page-loc-container">

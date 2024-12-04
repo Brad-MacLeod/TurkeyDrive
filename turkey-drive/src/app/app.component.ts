@@ -6,19 +6,22 @@ import { SiteConfig } from './tools/model/SiteConfig';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NumberCounterComponent } from "./tools/number-counter/number-counter.component";
 import { formatDate, isPlatformBrowser } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProgressComponent, LocationsComponent, HttpClientModule, NumberCounterComponent],
+  imports: [RouterOutlet, ProgressComponent, LocationsComponent, HttpClientModule, NumberCounterComponent, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'turkey-drive';
   goal:number = 150;
+  prev_goal:number= 0;
+  donated:number = 0;
   progress:number = 0;
   duration:number = 5;
 
@@ -34,7 +37,14 @@ export class AppComponent {
     this.http.get<SiteConfig>(this.configUrl).subscribe({
       next: (result)=> {
         this.siteConfig = result;
-        this.lastUpdated = this.getLastUpdated();
+        this.donated = this.getDonated(result);
+        if(this.donated >= this.goal){
+          this.goal = 250;
+          this.prev_goal = 150;
+        }
+        this.progress = Math.round(this.donated / this.goal*100);
+        
+        //this.lastUpdated = this.getLastUpdated();
       },
       error: (error)=>console.error(error),
       complete: () => console.info("JSON Downloaded")
@@ -44,31 +54,24 @@ export class AppComponent {
   
   }
 
-  
-  getProgress():number{
-    
-    //console.info(Math.round(this.getDonated() / this.siteConfig.main_goal*100));
-    return Math.round(this.getDonated() / this.siteConfig.main_goal*100);
-  }
-
   getItemProgress(item:Campaign):number{
     
     //console.info(Math.round(this.getDonated() / this.siteConfig.main_goal*100));
     return Math.round(item.progress / item.goal*100);
   }
 
-  getDonated():number{
+  private getDonated(result:SiteConfig):number{
     var progress = 0;
 
-    if(this.siteConfig.donated.length>0){
-      this.siteConfig.donated
+    if(result.donated.length>0){
+      result.donated
         .filter(d=> d.combine)
         .map(d => {
           progress += d.progress
       });
       return progress;
     }else{
-      return this.progress;
+      return 0;
     }
   }  
 
@@ -79,10 +82,10 @@ export class AppComponent {
     return false;
   }
 
-  getLastUpdated(){
-    var d = new Date(this.siteConfig.last_updated);
-    return formatDate(d, "MMM dd - hh:mm:a", "en-CA"); // hh:mm:ampm
-  }
+  // getLastUpdated(){
+  //   var d = new Date(this.siteConfig.last_updated);
+  //   return formatDate(d, "MMM dd - hh:mm:a", "en-CA"); // hh:mm:ampm
+  // }
 
 }
 
